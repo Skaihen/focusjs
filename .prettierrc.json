@@ -1,0 +1,13 @@
+{
+    "semi": false,
+    "tabWidth": 2,
+    "trailingComma": "none",
+    "importOrderSeparation": true,
+    "importOrder": [
+        "^@core/(.*)$",
+        "^@server/(.*)$",
+        "^@ui/(.*)$",
+        "^[./]"
+    ],
+    "importOrderSortSpecifiers": true
+}
