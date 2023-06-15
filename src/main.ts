@@ -1,24 +1,33 @@
-import './style.css'
-import typescriptLogo from './typescript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.ts'
+import { h, mount, patchNode } from "../lib/helper"
 
-document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://www.typescriptlang.org/" target="_blank">
-      <img src="${typescriptLogo}" class="logo vanilla" alt="TypeScript logo" />
-    </a>
-    <h1>Vite + TypeScript</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite and TypeScript logos to learn more
-    </p>
-  </div>
-`
+// Virtual node 1
+const node1 = h("div", { class: "container" }, [
+  h("h1", null, "Hello World 🌍"),
+  h("p", null, "Thanks for reading the marc.dev blog 😊")
+])
 
-setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
+// Mount the node to the DOM
+mount(node1, document.getElementById("app"))
+
+// Virtual node 2
+const node2 = h("div", { class: "container" }, [
+  h("h1", null, "Hello Dev 💻"),
+  h("p", null, [
+    h("span", null, "Thanks for reading the "),
+    h("a", { href: "https://marc.dev" }, "marc.dev"),
+    h("span", null, " blog")
+  ]),
+  h(
+    "img",
+    {
+      src: "https://media.giphy.com/media/26gsjCZpPolPr3sBy/giphy.gif",
+      style: "width: 350px; border-radius: 0.5rem;"
+    },
+    []
+  )
+])
+
+// Patch the new node to the old node
+setTimeout(() => {
+  patchNode(node1, node2)
+}, 3000)
