@@ -1,6 +1,6 @@
 import type { helperType, vnodeType } from "./types"
 
-export function h(tag, props, ...children): helperType {
+export function h({ tag, props, ...children }: helperType) {
   return {
     tag,
     props,

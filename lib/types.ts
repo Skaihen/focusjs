@@ -1,7 +1,7 @@
 export type helperType = {
   tag: string
   props: helperPropsType | null
-  children: (string | helperChildrenType[])[]
+  children: (string | helperType[])[]
 }
 
 export type helperPropsType = {
@@ -11,15 +11,9 @@ export type helperPropsType = {
   style?: string
 }
 
-export type helperChildrenType = {
-  tag: string
-  props: helperPropsType
-  children: helperChildrenType[]
-}
-
 export type vnodeType = {
   tag: string
   props: helperPropsType
-  children: helperChildrenType[]
+  children: helperType[]
   el?: HTMLElement
 }
