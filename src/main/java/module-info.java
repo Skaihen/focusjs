@@ -1,4 +1,6 @@
 module io.skaihen {
-    requires javafx.controls;
+    requires transitive javafx.controls;
+    requires javafx.web;
+
     exports io.skaihen;
 }
