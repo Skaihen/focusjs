@@ -18,7 +18,7 @@ public class App extends Application {
 
         WebView webView = new WebView();
 
-        webView.getEngine().load("http://google.com");
+        webView.getEngine().load(getClass().getResource("/index.html").toString());
 
         Scene scene = new Scene(new StackPane(webView), 960, 600);
 
